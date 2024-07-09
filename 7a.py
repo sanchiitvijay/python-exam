@@ -11,12 +11,14 @@ class Stack:
 
     def pop(self):
         if self.is_empty():
-            raise IndexError("Stack is empty.")
+            print("Stack is empty. Cannot pop.")
+            return None
         return self.items.pop()
 
     def peek(self):
         if self.is_empty():
-            raise IndexError("Stack is empty.")
+            print("Stack is empty. Cannot peek.")
+            return None
         return self.items[-1]
 
     def size(self):
@@ -39,12 +41,14 @@ class Queue:
 
     def dequeue(self):
         if self.is_empty():
-            raise IndexError("Queue is empty.")
+            print("Queue is empty. Cannot dequeue.")
+            return None
         return self.items.pop(0)
 
     def peek(self):
         if self.is_empty():
-            raise IndexError("Queue is empty.")
+            print("Queue is empty. Cannot peek.")
+            return None
         return self.items[0]
 
     def size(self):
@@ -67,7 +71,6 @@ s.display()
 print()
 print("Testing Queue operations:")
 
-
 q = Queue()
 q.enqueue(10)
 q.enqueue(20)
@@ -78,7 +81,6 @@ print("Dequeued:", q.dequeue())
 q.display()
 print()
 print("Testing empty conditions:")
-
 
 empty_stack = Stack()
 print("Empty stack size:", empty_stack.size())
