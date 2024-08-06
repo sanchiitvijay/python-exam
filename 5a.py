@@ -1,20 +1,18 @@
-import re
+my_tuple = (1, 2, 3, 4, 5)
 
-def count_occurrences(text):
-    vowels = re.findall(r'[aeiouAEIOU]', text)
-    consonants = re.findall(r'[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]', text)
-    digits = re.findall(r'\d', text)
+new_tuple = my_tuple + (6,)
+print("Tuple after adding an item:", new_tuple)
 
-    vowel_count = len(vowels)
-    consonant_count = len(consonants)
-    digit_count = len(digits)
+print("Length of the tuple:", len(new_tuple))
 
-    return vowel_count, consonant_count, digit_count
+item = 3
+if item in new_tuple:
+    print(f"{item} is present in the tuple.")
+else:
+    print(f"{item} is not present in the tuple.")
 
-text = input("Enter a text: ")
-
-vowels, consonants, digits = count_occurrences(text)
-
-print(f"Vowels: {vowels}")
-print(f"Consonants: {consonants}")
-print(f"Digits: {digits}")
+index = 2
+if 0 <= index < len(new_tuple):
+    print(f"Item at index {index}: {new_tuple[index]}")
+else:
+    print(f"Index {index} is out of range for the tuple.")

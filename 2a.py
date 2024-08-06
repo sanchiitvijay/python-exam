@@ -6,15 +6,12 @@ def is_prime(num):
             return False
     return True
 
-def prime_numbers_in_range(start, end):
-    primes = []
-    for num in range(start, end + 1):
-        if is_prime(num):
-            primes.append(num)
-    return primes
-
 start = int(input("Enter the start of the range: "))
 end = int(input("Enter the end of the range: "))
 
-prime_numbers = prime_numbers_in_range(start, end)
-print("Prime numbers in the range:", prime_numbers)
+primes = []
+for num in range(start, end + 1):
+    if is_prime(num):
+        primes.append(num)
+
+print("Prime numbers in the range:", primes)

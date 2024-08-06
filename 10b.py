@@ -1,29 +1,21 @@
-def handle_exceptions():
-    try:
-        # NameError
-        print(undefined_variable)
+import pandas as pd
+import matplotlib.pyplot as plt
 
-        # IndexError
-        numbers = [1, 2, 3]
-        print(numbers[5])
+iris_data = pd.read_csv('iris.csv')
 
-        # KeyError
-        my_dict = {'a': 1, 'b': 2}
-        print(my_dict['c'])
+print("First 5 rows of the dataset:")
+print(iris_data.head())
 
-        # ZeroDivisionError
-        result = 10 / 0
-        print(result)
+print("\nLast 5 rows of the dataset:")
+print(iris_data.tail())
 
-    except NameError as e:
-        print(f"NameError occurred: {e}")
-    except IndexError as e:
-        print(f"IndexError occurred: {e}")
-    except KeyError as e:
-        print(f"KeyError occurred: {e}")
-    except ZeroDivisionError as e:
-        print(f"ZeroDivisionError occurred: {e}")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+print("\nInformation about the dataset:")
+print(iris_data.info())
 
-handle_exceptions()
+print("\nOverview of values in each column:")
+print(iris_data.describe())
+
+iris_data.plot(kind='scatter', x='SepalLengthCm', y='SepalWidthCm', title='Sepal Length vs Sepal Width')
+plt.xlabel('Sepal Length (cm)')
+plt.ylabel('Sepal Width (cm)')
+plt.show()

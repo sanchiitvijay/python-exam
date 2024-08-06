@@ -1,15 +1,18 @@
-import pandas as pd
 import matplotlib.pyplot as plt
+import pandas as pd
 
-data = {
-    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Emily'],
-    'Age': [25, 30, 35, 40, 45],
-    'Salary': [50000, 60000, 75000, 80000, 90000]
-}
+df = pd.read_csv('iris.csv')
 
-df = pd.DataFrame(data)
+plt.figure(figsize=(10, 6))
+df.plot(kind='line', subplots=True, layout=(5, 5), figsize=(15, 10), title="Dataset Visualization")
+plt.tight_layout()
+plt.show()
 
-df.plot(kind='bar', x='Name', y='Salary', title='Salary of Employees')
-plt.xlabel('Name')
-plt.ylabel('Salary')
+df.plot.scatter(x = 'sepal.length', y = 'sepal.width', title = "Scatter plot variable for X and Y axis")
+plt.show()
+
+plt.scatter(df.index, df['sepal.length'], c='black')
+plt.xlabel('Index')
+
+df.plot(kind='hist')
 plt.show()

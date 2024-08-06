@@ -1,22 +1,29 @@
-def divide_numbers(x, y):
+def handle_exceptions():
     try:
-        result = x / y
-    except ZeroDivisionError:
-        print("Error: Division by zero!")
-    except TypeError:
-        print("Error: Unsupported operation with types provided!")
+        # NameError
+        print(undefined_variable)
+
+        # IndexError
+        numbers = [1, 2, 3]
+        print(numbers[5])
+
+        # KeyError
+        my_dict = {'a': 1, 'b': 2}
+        print(my_dict['c'])
+
+        # ZeroDivisionError
+        result = 10 / 0
+        print(result)
+
+    except NameError as e:
+        print(f"NameError occurred: {e}")
+    except IndexError as e:
+        print(f"IndexError occurred: {e}")
+    except KeyError as e:
+        print(f"KeyError occurred: {e}")
+    except ZeroDivisionError as e:
+        print(f"ZeroDivisionError occurred: {e}")
     except Exception as e:
-        print(f"Error: {e}")
-    else:
-        print(f"Result of division: {result}")
-    finally:
-        print("Division operation completed.\n")
+        print(f"An unexpected error occurred: {e}")
 
-print("Test Case 1:")
-divide_numbers(10, 2)
-
-print("Test Case 2:")
-divide_numbers(10, 0)
-
-print("Test Case 3:")
-divide_numbers(10, '2')
+handle_exceptions()

@@ -1,18 +1,31 @@
-my_tuple = (1, 2, 3, 4, 5)
+def longest_and_shortest_words(filename):
+    try:
+        with open(filename, 'w') as file:
+            print("Enter 5-6 lines of text:")
+            for _ in range(5):
+                line = input()
+                file.write(line + '\n')
 
-new_tuple = my_tuple + (6,)
-print("Tuple after adding an item:", new_tuple)
+        with open(filename, 'r') as file:
+            text = file.read()
 
-print("Length of the tuple:", len(new_tuple))
+        words = text.split()
 
-item = 3
-if item in new_tuple:
-    print(f"{item} is present in the tuple.")
-else:
-    print(f"{item} is not present in the tuple.")
+        if not words:
+            print("No words found in the file.")
+            return
 
-index = 2
-if 0 <= index < len(new_tuple):
-    print(f"Item at index {index}: {new_tuple[index]}")
-else:
-    print(f"Index {index} is out of range for the tuple.")
+        longest_word = max(words, key=len)
+        shortest_word = min(words, key=len)
+
+        print("\nLongest word:", longest_word)
+        print("Length of longest word:", len(longest_word))
+        print("\nShortest word:", shortest_word)
+        print("Length of shortest word:", len(shortest_word))
+
+    except IOError:
+        print(f"Error: Could not read or write to file '{filename}'.")
+
+filename = "test1.txt"
+
+longest_and_shortest_words(filename)
