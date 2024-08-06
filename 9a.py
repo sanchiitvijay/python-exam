@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-import np
-
+import numpy as np
 
 file_path = 'iris.csv'
 data = pd.read_csv(file_path)
