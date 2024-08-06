@@ -11,26 +11,29 @@ plt.title('Dataset Visualization')
 plt.show()
 
 #Scatter plot
-data.plot.scatter(x='column1', y='column2')
+data.plot.scatter(x='sepal.length', y='sepal.width')
 plt.title('Scatter Plot between Column1 and Column2')
 plt.show()
 
 # Colourfull scatter plot
-colors = plt.cm.rainbow(np.linspace(0, 1, len('sepal.length')))
 
-for i, category in enumerate('sepal.length'):
-    subset = data[data['column3'] == category]
-    plt.scatter(subset['column1'], subset['column2'], color=colors[i], label=category)
+categories =data['variety'].unique()
+colors = plt.cm.rainbow(np.linspace(0, 1, len(categories)))
 
-plt.title('Scatter Plot with Different Colors')
-plt.xlabel('Column1')
-plt.ylabel('Column2')
+for i, category in enumerate(categories):
+    subset =data[data['variety'] == category]
+    plt.scatter(subset['sepal.length'], subset['sepal.width'], color=colors[i], label=category)
+
+plt.xlabel('sepal.length')
+plt.ylabel('sepal.width')
+plt.title('Scatter Plot of A vs B with Different Colours')
 plt.legend()
 plt.show()
 
+
 # Histogram
-data['column1'].plot.hist()
-plt.title('Histogram of Column1')
-plt.xlabel('Column1')
-plt.ylabel('Frequency')
+data['sepal.length'].plot.hist()
+plt.title('Histogram of length of sepal and petal')
+plt.xlabel('sepal.length')
+plt.ylabel('petal.length')
 plt.show()
